@@ -1,61 +1,36 @@
 package com.coderscampus.arrayList;
-
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
-	
+
 	Object[] items = new Object[10];
+
+	@SuppressWarnings("unused")
 	@Override
 	public boolean add(T item) {
-		int nextInt = 0;
-		for (int i =0; i<items.length; i++) {
-			if (items[i] ==null) {
-				nextInt = i;
-				break;
+		System.out.println(item);
+		for (int i = 0; i < items.length; i++) {
+			if (items[i] == null) {
+				Object[] newItems = Arrays.copyOf(items, 20);
+				for (int n = 0; n < newItems.length; n++);
 			}
-			// check to see if array is full, if it is, double the array with "*2
-			// then copy over everything to new array
-			if(nextInt == items.length -1) {
-				Object [] newItems = new Object[items.length * 2];
-				for (int n = 0; n <items.length; n++) {
-					newItems[n] = items[n];
-				}
-				//ensure all array item are carried over and check to see if they were actually added
-				items = newItems;
-			}
-			items[nextInt]= item;
-		}if (nextInt < items.length) {
-			items[nextInt] = item;
+			if (items.equals(item))
+				System.out.println("added succesfully");
 			return true;
-			
-			//have sysout for if items were added correctly or not
-		}
-		System.out.println("added sucessfully");
+		} 
 		return false;
 	}
-	
-	
-
-	
-	
-
-//	@Override
-//	public boolean add(T item) {
-		
-
-//
-//		return false;
-//	}
-
 	@Override
 	public int getSize() {
-
-		return 0;
+	System.out.println(size);
+		return items.length;
 	}
+	int size = Array.getLength(items);
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
-
-		return null;
+		return (T) items[index];
 	}
-
 }
