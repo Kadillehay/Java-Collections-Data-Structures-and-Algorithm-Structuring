@@ -1,8 +1,5 @@
 package com.coderscampus.arrayList;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public interface CustomList<T> {
 	/**
 	 * This method should add a new item into the <code>CustomList</code> and should
@@ -33,5 +30,5 @@ public interface CustomList<T> {
 	 * @return The element that is stored inside of the <code>CustomList</code> at the given index
 	 */
 	T get(int index);
-
+	
 }
